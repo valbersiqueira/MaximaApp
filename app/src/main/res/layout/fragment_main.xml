@@ -1,0 +1,40 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+             tools:context="com.maxima.maximaapp.view.fragment.MainFragment">
+
+    <android.support.constraint.ConstraintLayout android:layout_width="match_parent"
+                                                 android:layout_height="match_parent"
+                                                 android:background="@color/black">
+        <Button
+                android:text="@string/pri_tela1_btn"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:id="@+id/pri_tela_1_btn" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/guideline" android:background="@color/azul"
+                android:layout_marginTop="8dp" android:layout_marginBottom="4dp" android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp" android:textSize="18sp" android:textColor="@color/black"/>
+        <Button
+                android:text="@string/pri_tela2_btn"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:id="@+id/pri_tela_2_btn"
+                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/guideline"
+                android:background="@color/azul" android:layout_marginStart="8dp" android:layout_marginTop="4dp"
+                android:layout_marginEnd="8dp" android:layout_marginBottom="8dp" android:textSize="18sp"
+                android:textColor="@color/black"/>
+
+        <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="0dp"
+                                              android:id="@+id/guideline"
+                                              android:orientation="horizontal"
+                                              app:layout_constraintTop_toTopOf="parent"
+                                              app:layout_constraintGuide_percent="0.5"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+</FrameLayout>
