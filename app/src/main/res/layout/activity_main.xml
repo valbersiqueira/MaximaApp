@@ -5,11 +5,11 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.maxima.maximaapp.MainActivity">
+        tools:context="com.maxima.maximaapp.view.MainActivity">
 
     <include  android:id="@+id/toolbar_main" layout="@layout/toolbar_main" />
 
-    <fragment android:name="com.maxima.maximaapp.view.fragment.MainFragment"
+    <FrameLayout
               android:id="@+id/fragment_main" android:layout_height="0dp"
               android:layout_width="0dp"
               android:layout_weight="1"

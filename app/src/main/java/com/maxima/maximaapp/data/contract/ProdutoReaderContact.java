@@ -11,6 +11,6 @@ public final class ProdutoReaderContact {
         public static final String TABLE_NAME = "produto";
         public static final String COLUM_CODIGO_ID = "codigo";
         public static final String COLUM_DESCRICAO_NAME = "descricao";
-        public static final String COLUM_FORNECEDOR_NAME = "fornecedor";
+        public static final String COLUM_FORNECEDOR_NAME = "fornecedor_id";
     }
 }
