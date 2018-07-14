@@ -10,6 +10,12 @@ public class Fornecedor implements Parcelable{
     private String name;
     private int picture;
 
+    public Fornecedor(Integer id, String name, int picture) {
+        this.id = id;
+        this.name = name;
+        this.picture = picture;
+    }
+
     protected Fornecedor(Parcel in) {
         if (in.readByte() == 0) {
             id = null;

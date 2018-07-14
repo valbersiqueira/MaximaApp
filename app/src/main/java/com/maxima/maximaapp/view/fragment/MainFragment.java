@@ -1,15 +1,20 @@
 package com.maxima.maximaapp.view.fragment;
 
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.maxima.maximaapp.R;
+import com.maxima.maximaapp.data.MaximaDbHelper;
+import com.maxima.maximaapp.data.contract.FornecedorReaderContract;
 import com.maxima.maximaapp.mvp.MVP;
 import com.maxima.maximaapp.mvp.MainFragmentPresenter;
 
@@ -29,15 +34,6 @@ public class MainFragment extends Fragment implements MVP.MainFragmentImpl {
     private Button tela2Btn;
     private MVP.MainFragmentPresenterImpl presenter;
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (presenter == null){
-            presenter = new MainFragmentPresenter();
-        }
-        presenter.setFragment(this);
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,18 +55,24 @@ public class MainFragment extends Fragment implements MVP.MainFragmentImpl {
         tela2Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+//                changeFragmente(new ServicoFragment());
             }
         });
+
+        if (presenter == null) {
+            presenter = new MainFragmentPresenter();
+        }
+        presenter.setFragment(this);
+
 
         return view;
 
     }
 
     private void changeFragmente(Fragment fragment) {
-        getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_main, fragment)
-                .commit();
+            getActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_main, fragment)
+                    .commit();
     }
 
 }

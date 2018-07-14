@@ -1,0 +1,5 @@
+
+ƒsquid:S1450"bRemove the "fragmentTransaction" field and declare it as a local variable in the relevant methods.(±ºëØûÿÿÿÿ8ÌÖ«¹É,
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¶«œ¨8ÌÖ«¹É,
+{squid:S1450"ZRemove the "toolbarMain" field and declare it as a local variable in the relevant methods.(ÄÀôôÿÿÿÿÿ8ÌÖ«¹É,
+jsquid:MaximumInheritanceDepth"<This class has 7 parents which is greater than 5 authorized.(²Ú±8ÌÖ«¹É,

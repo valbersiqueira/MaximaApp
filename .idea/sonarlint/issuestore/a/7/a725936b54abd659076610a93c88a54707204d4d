@@ -1,0 +1,6 @@
+
+csquid:UselessImportCheck"5Remove this unused import 'android.widget.ImageView'.(ú¯ëàüÿÿÿÿ8ÌÖ«¹É,
+squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¡é††8ÌÖ«¹É,
+squid:S1319"sThe type of the "produtos" object should be an interface such as "List" rather than the implementation "ArrayList".(—Şõß8ÌÖ«¹É,
+zsquid:UselessImportCheck"LRemove this unused import 'com.maxima.maximaapp.view.fragment.MainFragment'.(÷üÈ”øÿÿÿÿ8ÌÖ«¹É,
+Isquid:S1659"(Declare "fornecedor" on a separate line.(ØÓÎìşÿÿÿÿ8ÌÖ«¹É,

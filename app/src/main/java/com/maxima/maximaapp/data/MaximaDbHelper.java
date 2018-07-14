@@ -18,34 +18,40 @@ public class MaximaDbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL(geraBD());
+        sqLiteDatabase.execSQL(geraTbFornecedor());
+        sqLiteDatabase.execSQL(geraTbProduto());
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + FornecedorReaderContract.FornecedorEntry.TABLE_NAME);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + ProdutoReaderContact.ProdutoEntry.TABLE_NAME);
         onCreate(sqLiteDatabase);
     }
 
-    private static final String geraBD() {
-        final String CREATE_TABLE = "CREATE TABLE ";
+    private static final String geraTbFornecedor() {
+        final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS ";
         return new StringBuilder(CREATE_TABLE)
-                .append(ProdutoReaderContact.ProdutoEntry.TABLE_NAME + "( ")
-                .append(ProdutoReaderContact.ProdutoEntry.COLUM_CODIGO_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, ")
-                .append(ProdutoReaderContact.ProdutoEntry.COLUM_DESCRICAO_NAME + " TEXT NOT NULL, ")
-                .append(ProdutoReaderContact.ProdutoEntry.COLUM_FORNECEDOR_NAME + " TEXT NOT NULL, ")
-                .append("FORENGN KEY (" + ProdutoReaderContact.ProdutoEntry.COLUM_FORNECEDOR_NAME + ") REFERENCES ")
-                .append(FornecedorReaderContract.FornecedorEntry.TABLE_NAME + "(" + FornecedorReaderContract.FornecedorEntry._ID + ")")
-                .append(");")
-
-                .append(CREATE_TABLE)
                 .append(FornecedorReaderContract.FornecedorEntry.TABLE_NAME + "( ")
                 .append(FornecedorReaderContract.FornecedorEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, ")
                 .append(FornecedorReaderContract.FornecedorEntry.COLUM_NAME + " TEXT NOT NULL, ")
                 .append(FornecedorReaderContract.FornecedorEntry.COLUM_FOTO + " INTEGER ")
-                .append(" );")
-                .toString();
+                .append(");").toString();
 
+    }
+
+
+    private String geraTbProduto() {
+        final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS ";
+        return new StringBuilder(CREATE_TABLE)
+                .append(ProdutoReaderContact.ProdutoEntry.TABLE_NAME + "( ")
+                .append(ProdutoReaderContact.ProdutoEntry.COLUM_CODIGO_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, ")
+                .append(ProdutoReaderContact.ProdutoEntry.COLUM_DESCRICAO_NAME + " TEXT NOT NULL, ")
+                .append(ProdutoReaderContact.ProdutoEntry.COLUM_FORNECEDOR_ID + " INTEGER NOT NULL, ")
+                .append("FOREIGN KEY (" + ProdutoReaderContact.ProdutoEntry.COLUM_FORNECEDOR_ID + ") REFERENCES ")
+                .append(FornecedorReaderContract.FornecedorEntry.TABLE_NAME + "(" + FornecedorReaderContract.FornecedorEntry._ID + ")")
+                .append(");")
+                .toString();
     }
 
 }

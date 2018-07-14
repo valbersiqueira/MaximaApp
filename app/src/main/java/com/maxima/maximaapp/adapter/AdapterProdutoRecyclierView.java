@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.maxima.maximaapp.R;
 import com.maxima.maximaapp.domain.Produto;
+import com.maxima.maximaapp.view.fragment.ListProdFragment;
 import com.maxima.maximaapp.view.fragment.MainFragment;
 
 import java.util.ArrayList;
@@ -17,11 +18,11 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AdapterProdutoRecyclierView extends RecyclerView.Adapter<AdapterProdutoRecyclierView.MyViewHolder>{
 
-    private MainFragment mainFragment;
+    private ListProdFragment fragment;
     private ArrayList<Produto> produtos;
 
-    public AdapterProdutoRecyclierView(MainFragment mainFragment, ArrayList<Produto> produtos) {
-        this.mainFragment = mainFragment;
+    public AdapterProdutoRecyclierView(ListProdFragment fragment, ArrayList<Produto> produtos) {
+        this.fragment = fragment;
         this.produtos = produtos;
     }
 
@@ -36,7 +37,7 @@ public class AdapterProdutoRecyclierView extends RecyclerView.Adapter<AdapterPro
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-
+        holder.setDados(produtos.get(position));
     }
 
     @Override
@@ -50,7 +51,7 @@ public class AdapterProdutoRecyclierView extends RecyclerView.Adapter<AdapterPro
         public MyViewHolder(View itemView) {
             super(itemView);
             descricao = (TextView) itemView.findViewById(R.id.item_pro_desc_txt);
-            fornecedor= (TextView) itemView.findViewById(R.id.item_pro_name_txt);
+            fornecedor= (TextView) itemView.findViewById(R.id.item_pro_fornecedor_txt);
             picture = (CircleImageView) itemView.findViewById(R.id.item_picture_pro);
         }
 

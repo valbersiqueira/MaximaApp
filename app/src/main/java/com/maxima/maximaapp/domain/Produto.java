@@ -9,6 +9,11 @@ public class Produto implements Parcelable{
     private String descricao;
     private Fornecedor fornecedor;
 
+    public Produto(Integer codigo, String descricao, Fornecedor fornecedor) {
+        this.codigo = codigo;
+        this.descricao = descricao;
+        this.fornecedor = fornecedor;
+    }
 
     protected Produto(Parcel in) {
         if (in.readByte() == 0) {

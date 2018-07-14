@@ -1,14 +1,11 @@
 package com.maxima.maximaapp.mvp;
 
-import android.support.v4.app.Fragment;
 
 public class MainFragmentPresenter implements MVP.MainFragmentPresenterImpl {
 
     private MVP.MainFragmentImpl fragment;
-    private MVP.ModelProdutoImpl modelProduto;
 
     public MainFragmentPresenter() {
-        modelProduto = new ModelProduto(this);
     }
 
     @Override
@@ -16,8 +13,8 @@ public class MainFragmentPresenter implements MVP.MainFragmentPresenterImpl {
         this.fragment = fragment;
     }
 
-    @Override
-    public Fragment getContext() {
-        return (Fragment) fragment;
+    public MVP.MainFragmentImpl getFragment() {
+        return fragment;
     }
+
 }
