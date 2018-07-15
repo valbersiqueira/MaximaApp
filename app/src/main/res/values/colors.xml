@@ -8,4 +8,6 @@
 
     <color name="withe">#ffffff</color>
     <color name="darckLight">#3c3c3c</color>
+
+    <color name="black">#000</color>
 </resources>

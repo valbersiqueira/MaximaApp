@@ -60,12 +60,40 @@ public class ModelProduto implements MVP.ModelProdutoImpl {
 
     public long save() {
         try {
-
             database = new MaximaDbHelper(presenter.getContext()).getWritableDatabase();
-            ContentValues cv = new ContentValues();
-            cv.put(FornecedorReaderContract.FornecedorEntry.COLUM_NAME, "Sabão");
-            cv.put(FornecedorReaderContract.FornecedorEntry.COLUM_FOTO, R.drawable.sabao);
-            database.insert(FornecedorReaderContract.FornecedorEntry.TABLE_NAME, null, cv);
+
+            ArrayList<Integer> fotos = new ArrayList<>();
+            fotos.add(R.drawable.sabao);
+            fotos.add(R.drawable.arroz);
+            fotos.add(R.drawable.arroz_vera);
+            fotos.add(R.drawable.carne);
+            fotos.add(R.drawable.detergente);
+            fotos.add(R.drawable.feijao);
+            fotos.add(R.drawable.ioguite);
+            fotos.add(R.drawable.leite);
+            fotos.add(R.drawable.macarrao);
+            fotos.add(R.drawable.macarrao2);
+
+            ArrayList<String> nomes = new ArrayList<>();
+            nomes.add("Sabão");
+            nomes.add("Arroz");
+            nomes.add("Arroz Vera");
+            nomes.add("Carne");
+            nomes.add("Detergente");
+            nomes.add("Feijão");
+            nomes.add("Iogute");
+            nomes.add("Leite");
+            nomes.add("Macarrão");
+            nomes.add("Macarrão 2");
+
+            for (int i = 0; i < fotos.size(); i++) {
+                ContentValues cv = new ContentValues();
+                cv.put(FornecedorReaderContract.FornecedorEntry.COLUM_NAME, nomes.get(i));
+                cv.put(FornecedorReaderContract.FornecedorEntry.COLUM_FOTO, fotos.get(i));
+                database.insert(FornecedorReaderContract.FornecedorEntry.TABLE_NAME, null, cv);
+            }
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
