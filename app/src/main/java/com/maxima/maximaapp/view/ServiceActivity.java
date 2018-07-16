@@ -65,17 +65,18 @@ public class ServiceActivity extends AppCompatActivity implements ServiceConnect
 
     public void stop(View view) {
         stopService(new Intent(ServiceActivity.this, CountService.class));
+            int contador = countListener.getCount();
+            if(contador != 0) {
+                Bundle dados = new Bundle();
+                dados.putString("count", String.valueOf(contador));
 
-            Bundle dados = new Bundle();
-            dados.putString("count", String.valueOf(countListener.getCount()));
 
-
-            exibirCountFragment = new ExibirCountFragment();
-            exibirCountFragment.setArguments(dados);
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment_show, exibirCountFragment)
-                    .commit();
-
+                exibirCountFragment = new ExibirCountFragment();
+                exibirCountFragment.setArguments(dados);
+                getSupportFragmentManager().beginTransaction()
+                        .add(R.id.fragment_show, exibirCountFragment)
+                        .commit();
+            }
 
     }
 
