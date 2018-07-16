@@ -6,7 +6,7 @@
 
     <android.support.constraint.ConstraintLayout android:layout_width="match_parent"
                                                  android:layout_height="match_parent"
-                                                 android:background="@color/withe">
+                                                 android:background="@color/wihite">
 
         <Button
             android:id="@+id/pri_tela_1_btn"
@@ -18,7 +18,7 @@
             android:layout_marginTop="8dp"
             android:background="@color/azul"
             android:text="@string/pri_tela1_btn"
-            android:textColor="@color/withe"
+            android:textColor="@color/wihite"
             android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline"
             app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +35,7 @@
             android:layout_marginTop="4dp"
             android:background="@color/azul"
             android:text="@string/pri_tela2_btn"
-            android:textColor="@color/withe"
+            android:textColor="@color/wihite"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

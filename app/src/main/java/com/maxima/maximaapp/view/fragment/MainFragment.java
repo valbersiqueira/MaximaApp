@@ -2,6 +2,7 @@ package com.maxima.maximaapp.view.fragment;
 
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -17,6 +18,7 @@ import com.maxima.maximaapp.data.MaximaDbHelper;
 import com.maxima.maximaapp.data.contract.FornecedorReaderContract;
 import com.maxima.maximaapp.mvp.MVP;
 import com.maxima.maximaapp.mvp.MainFragmentPresenter;
+import com.maxima.maximaapp.view.ServiceActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -42,8 +44,8 @@ public class MainFragment extends Fragment implements MVP.MainFragmentImpl {
 
         view = inflater.inflate(R.layout.fragment_main, container, false);
 
-        tela1Btn = (Button) view.findViewById(R.id.pri_tela_1_btn);
-        tela2Btn = (Button) view.findViewById(R.id.pri_tela_2_btn);
+        tela1Btn =  view.findViewById(R.id.pri_tela_1_btn);
+        tela2Btn =  view.findViewById(R.id.pri_tela_2_btn);
 
         tela1Btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +58,7 @@ public class MainFragment extends Fragment implements MVP.MainFragmentImpl {
             @Override
             public void onClick(View v) {
 //                changeFragmente(new ServicoFragment());
+                startActivity(new Intent(getActivity(), ServiceActivity.class));
             }
         });
 

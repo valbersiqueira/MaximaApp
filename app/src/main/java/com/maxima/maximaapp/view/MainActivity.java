@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void inicializarComponent() {
-        this.toolbarMain = (Toolbar) findViewById(R.id.toolbar_main);
+        this.toolbarMain = findViewById(R.id.toolbar_main);
         setSupportActionBar(toolbarMain);
         getSupportActionBar().setTitle(R.string.app_name);
 
