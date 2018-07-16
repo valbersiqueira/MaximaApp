@@ -25,6 +25,7 @@ public class ServiceActivity extends AppCompatActivity implements ServiceConnect
     private CountListener countListener;
     private Toolbar toolbarMain;
     private ExibirCountFragment exibirCountFragment;
+    private CountService.Controller controller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,27 +36,26 @@ public class ServiceActivity extends AppCompatActivity implements ServiceConnect
         getSupportActionBar().setTitle(R.string.app_name);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
         connection = this;
         bindService(new Intent(ServiceActivity.this, CountService.class), connection, Context.BIND_AUTO_CREATE);
     }
 
     @Override
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        CountService.Controller controller = (CountService.Controller) iBinder;
+         controller = (CountService.Controller) iBinder;
         countListener = controller.getCount();
     }
 
     @Override
     public void onServiceDisconnected(ComponentName componentName) {
-
+        controller = null;
     }
 
     public void start(View view) {
 
         Toast.makeText(this, "Serviço iniciado", Toast.LENGTH_LONG).show();
         startService(new Intent(ServiceActivity.this, CountService.class));
-        if(exibirCountFragment !=null) {
+        if (exibirCountFragment != null) {
             getSupportFragmentManager().beginTransaction()
                     .remove(exibirCountFragment)
                     .commit();
@@ -65,15 +65,18 @@ public class ServiceActivity extends AppCompatActivity implements ServiceConnect
 
     public void stop(View view) {
         stopService(new Intent(ServiceActivity.this, CountService.class));
-        unbindService(connection);
-        exibirCountFragment = new ExibirCountFragment();
-        Bundle dados = new Bundle();
-        dados.putString("count", String.valueOf(countListener.getCount()));
-        exibirCountFragment.setArguments(dados);
 
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment_show, exibirCountFragment)
-                .commit();
+            Bundle dados = new Bundle();
+            dados.putString("count", String.valueOf(countListener.getCount()));
+
+
+            exibirCountFragment = new ExibirCountFragment();
+            exibirCountFragment.setArguments(dados);
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fragment_show, exibirCountFragment)
+                    .commit();
+
+
     }
 
     @Override
