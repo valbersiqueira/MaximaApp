@@ -26,8 +26,8 @@ public class ModelProduto implements MVP.ModelProdutoImpl {
         try {
 
 //            this.list();
-//            this.save();
-//            this.savePro();
+            this.save();
+            this.savePro();
         } catch (Exception e) {
             Log.d("ERRO_TESTE", e.getMessage());
         }
